@@ -1,0 +1,58 @@
+.pListContainer{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.pTitle{
+    width: 1024px;
+    text-align: start;
+    color: #244c2e;
+    font-size: 25px;
+}
+
+.pList{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.pListItem{
+    flex: 1;
+    overflow:hidden;
+    cursor: pointer;
+    transition: all 0.1s;
+
+}
+.pListItem:hover{
+    transition: all 0.2s;
+    transform: scale(1.05);
+}
+
+.pListImg{
+    width:100%;
+    height:200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.pListTitles{
+    color:#244c2e;
+}
+
+.pListTitles>h1{
+    font-size:20px;
+    margin-bottom: 5px;
+}
+.pListTitles>h2{
+    font-size:15px;
+    margin-top: 0px;
+    color:#244c2eb4;
+
+}
