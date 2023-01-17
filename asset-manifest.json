@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/petsitterfinder-frontend/static/css/main.08ce2f37.css",
+    "main.js": "/petsitterfinder-frontend/static/js/main.2e12d85e.js",
+    "index.html": "/petsitterfinder-frontend/index.html",
+    "main.08ce2f37.css.map": "/petsitterfinder-frontend/static/css/main.08ce2f37.css.map",
+    "main.2e12d85e.js.map": "/petsitterfinder-frontend/static/js/main.2e12d85e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.08ce2f37.css",
+    "static/js/main.2e12d85e.js"
+  ]
+}
