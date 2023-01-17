@@ -32,10 +32,16 @@
   cursor: pointer;
 }
 
+.headerListItem:hover {
+  background-color: #b8f5c757;
+  border-radius: 20px;
+}
+
 .headerListItem.active {
-  /* border: 1px solid #244C2E; */
+  border: 2px solid #244C2E;
   border-radius: 20px;
   background-color: #b8f5c7;
+  
 }
 
 .headerDesc {
