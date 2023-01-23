@@ -1,25 +1,22 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import Navbar from '../../components/navbar/Navbar'
 import Footer from '../../components/footer/Footer'
 import './list.css'
-import { DateRange } from "react-date-range";
+import SearchSideBox from '../../components/searchSideBox/SearchSideBox'
 
-import {format} from 'date-fns'
 import SearchItem from '../../components/searchitem/SearchItem'
 import EmailSubs from '../../components/emailSubs/EmailSubs'
 
 const List = () => {
   const location = useLocation()
-  const [openCalendar, setOpenCalendar] = useState(false)
+  const params = useParams()
+  console.log(params.category);
   const [place, setPlace] = useState(location.state.place)
   const [date, setDate] = useState(location.state.date)
-  const [pet, setPet] = useState(location.state.searchBarText)
-  console.log(pet);
-  const [selectDog, setSelectDog] = useState(pet === 'dog' && true)
-  const [selectFish, setSelectFish] = useState(pet === 'fish' && true)
-  const [selectCat, setSelectCat] = useState(pet === 'cat' && true)
+  const [pet, setPet] = useState(params.category)
+
 
   const petList1 = [
     {
@@ -205,56 +202,7 @@ const List = () => {
       <Header type={'list'} petType={pet}/>
       <div className="listContainer">
         <div className="listWrapper">
-          <div className="listSearch">
-            <div className="lsTitle">Search</div>
-            <div className="lsItem">
-              <label htmlFor="" className="lsItemLabel">Mascota</label>
-              <select>
-                <option>Todas</option>
-                <option selected={selectDog}>Perros</option>
-                <option selected={selectCat}>Gatos</option>
-                <option selected={selectFish}>Peces</option>
-              </select>
-            </div>
-            <div className="lsItem">
-              <label htmlFor="" className="lsItemLabel">Lugar</label>
-              <input type="text" className="lsItemInput" placeholder={place} />
-            </div>
-            <div className="lsItem">
-              <label htmlFor="" className="lsItemLabel">Fechas </label>
-              <span
-              onClick={()=> setOpenCalendar(!openCalendar)}
-              >{`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(
-                  date[0].endDate,
-                  "dd/MM/yyyy"
-                )}`}</span>
-               {openCalendar && <DateRange
-                onChange={(item)=> setDate([item.selection])}
-                ranges={date}
-                minDate={new Date()}
-                />}
-            </div>
-            <div className="lsItem">
-              <label htmlFor="" className="lsItemLabel">Categoria</label>
-              <select>
-                <option>-</option>
-                <option>Perros Pequeños</option>
-                <option>Perros Grandes</option>
-                <option>Cachorros</option>
-              </select>
-            </div>
-            <div className="lsItem">
-              <label htmlFor="" className="lsItemLabel">Sexo</label>
-              <select>
-                <option>-</option>
-                <option>Hembra</option>
-                <option>Macho</option>
-              </select>
-            </div>
-            <div className="lsItem">
-                <button>Buscar!</button>
-            </div>
-          </div>
+          <SearchSideBox pet={pet} place={place} date_={date}/>
           <div className="listResult">
             {petList.length > 0 ? petList.map((item)=> {
               return <SearchItem key={item.id} item={item}/>

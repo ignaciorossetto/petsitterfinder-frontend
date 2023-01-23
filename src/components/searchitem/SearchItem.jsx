@@ -16,7 +16,7 @@ const SearchItem = ({item}) => {
             <div className="descDates">Fechas: {item.start_date} - {item.end_date}</div>
             <div className="descDates">Dueñe: Juan</div>
         </div>
-        <Link to={`/pets/${item.id}`} state={item}>
+        <Link to={`/pets/${item.category}/${item.id}`} state={item}>
             <button className='itemBtn'>Detalles sobre {item.name}</button>
         </Link>
         </div>

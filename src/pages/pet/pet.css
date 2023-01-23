@@ -9,11 +9,18 @@
     width: 100%;
     max-width: 1024px;
     display: flex;
+    justify-content: space-between;
 }
 .petImg{
     border-radius: 10px;
-    margin-right: 20px;
+    height:350px;
+    width:auto;
 }
+
+.descContainer{
+    width: 50%;
+}
+
 .petDetails>h1{
     justify-self: center;
 }
@@ -21,5 +28,11 @@
 .petDescription{
     font-size: 17px;
     margin-bottom: 25px;
+}
+
+.arrowBack{
+    align-self: baseline;
+    font-size: 30px;
+    color: black;
 }
 

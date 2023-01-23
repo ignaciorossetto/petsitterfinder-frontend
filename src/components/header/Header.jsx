@@ -35,7 +35,13 @@ const Header = ({ type, petType }) => {
 
 
   const handleSearch = () => {
-    navigate("/pets", { state: { place, date, searchBarText } });
+    navigate(`/pets/${searchBarText}?start_date=${format(
+      date[0].startDate,
+      "dd/MM/yyyy"
+    )}&end_date=${format(
+      date[0].endDate,
+      "dd/MM/yyyy"
+    )}&place=${place}`, { state: { place, date, searchBarText } });
   };
   const handlePlaceInput = (e) => {
     setPlace(e.target.value)
@@ -132,9 +138,10 @@ const Header = ({ type, petType }) => {
                 )}`}</span>
                 {openCalendar && (
                   <DateRange
-                    editableDateInputs={true}
-                    onChange={(item) => setDate([item.selection])}
+                  onChange={(item) => setDate([item.selection])}
+                  editableDateInputs={true}
                     moveRangeOnFirstSelection={false}
+                    minDate={new Date()}
                     ranges={date}
                     className="date"
                   />
