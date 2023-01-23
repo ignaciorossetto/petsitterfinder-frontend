@@ -2,7 +2,7 @@ import React from 'react'
 import './emailSubs.css'
 
 
-const EmailSubs = () => {
+const EmailSubs = () => {  
   return (
     <div className="eSubsContainer">
         <div className="eSubsTitles">

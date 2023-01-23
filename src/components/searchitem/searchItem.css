@@ -1,0 +1,45 @@
+.searchItem{
+    display: flex;
+    border: solid 1px black;
+    margin-bottom: 15px;
+    background-color: white;
+    padding: 10px;
+    /* border-radius: 10px; */
+
+}
+
+.siImg{
+    object-fit:cover;
+    height: 300px;
+    width: auto;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.siDescContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.siDesc>div{
+    margin-bottom: 10px;
+}
+
+.itemBtn{
+    width: 200px;
+    height: 35px;
+    background-color: #53ad6a;
+    border-color: #08421657;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+
+}
+.itemBtn:hover{
+    transform: scale(1.01);
+}
+.itemBtn:active{
+    box-shadow: 3px 2px 10px 1px rgba(0, 0, 0, 0.234)
+}
