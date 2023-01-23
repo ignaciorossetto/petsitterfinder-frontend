@@ -8,6 +8,7 @@ import { DateRange } from "react-date-range";
 
 import {format} from 'date-fns'
 import SearchItem from '../../components/searchitem/SearchItem'
+import EmailSubs from '../../components/emailSubs/EmailSubs'
 
 const List = () => {
   const location = useLocation()
@@ -262,6 +263,7 @@ const List = () => {
           </div>
         </div>
       </div>
+      <EmailSubs/>
       <Footer/>
     </div>
   )

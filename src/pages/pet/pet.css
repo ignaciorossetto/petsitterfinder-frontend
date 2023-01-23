@@ -1,0 +1,25 @@
+.petContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+.petDetails{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+}
+.petImg{
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.petDetails>h1{
+    justify-self: center;
+}
+
+.petDescription{
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+

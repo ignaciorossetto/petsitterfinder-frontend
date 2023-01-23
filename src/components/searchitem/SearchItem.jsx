@@ -1,5 +1,6 @@
 import React from 'react'
 import './searchItem.css'
+import { Link } from 'react-router-dom'
 
 const SearchItem = ({item}) => {
   return (
@@ -15,7 +16,9 @@ const SearchItem = ({item}) => {
             <div className="descDates">Fechas: {item.start_date} - {item.end_date}</div>
             <div className="descDates">Dueñe: Juan</div>
         </div>
-        <button className='itemBtn'>Detalles sobre {item.name}</button>
+        <Link to={`/pets/${item.id}`} state={item}>
+            <button className='itemBtn'>Detalles sobre {item.name}</button>
+        </Link>
         </div>
     </div>
   )
