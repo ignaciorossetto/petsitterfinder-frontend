@@ -31,7 +31,7 @@ const List = () => {
       gender: 'Male',
       start_date: '15/01/2023',
       end_date: '25/01/2023',
-      thumbnail: 'https://getyourpet.com/photos/250140fd-3b25-422b-9c88-42ce8703697b/pet-photo-767893.png'
+      thumbnail:[ 'https://getyourpet.com/photos/250140fd-3b25-422b-9c88-42ce8703697b/pet-photo-767893.png','https://getyourpet.com/photos/51ed97a5-afbf-4fe8-85e1-1c8302968a5e/pet-photo-747488.png', ]
     },
     {
       id:2,
@@ -44,7 +44,7 @@ const List = () => {
       gender: 'Male',
       start_date: '15/01/2023',
       end_date: '25/01/2023',
-      thumbnail: 'https://getyourpet.com/photos/51ed97a5-afbf-4fe8-85e1-1c8302968a5e/pet-photo-747488.png'
+      thumbnail:[ 'https://getyourpet.com/photos/51ed97a5-afbf-4fe8-85e1-1c8302968a5e/pet-photo-747488.png','https://getyourpet.com/photos/250140fd-3b25-422b-9c88-42ce8703697b/pet-photo-767893.png' ]
     },
     {
       id:3,
@@ -57,7 +57,7 @@ const List = () => {
       gender: 'Male',
       start_date: '15/01/2023',
       end_date: '25/01/2023',
-      thumbnail: 'https://getyourpet.com/photos/632e4cf9-701a-408e-aed2-cbde8e7f3116/pet-photo-765087.png'
+      thumbnail:[ 'https://getyourpet.com/photos/632e4cf9-701a-408e-aed2-cbde8e7f3116/pet-photo-765087.png','https://getyourpet.com/photos/632e4cf9-701a-408e-aed2-cbde8e7f3116/pet-photo-765087.png' ]
     },
     {
       id:4,
@@ -70,7 +70,7 @@ const List = () => {
       gender: 'Male',
       start_date: '15/01/2023',
       end_date: '25/01/2023',
-      thumbnail: 'https://getyourpet.com/photos/8fcafb87-c94a-4ed4-909b-3ad220600892/pet-photo-770921.png'
+      thumbnail:[ 'https://getyourpet.com/photos/8fcafb87-c94a-4ed4-909b-3ad220600892/pet-photo-770921.png','https://getyourpet.com/photos/8fcafb87-c94a-4ed4-909b-3ad220600892/pet-photo-770921.png' ]
     },
     {
       id:5,
@@ -83,7 +83,7 @@ const List = () => {
       gender: 'Male',
       start_date: '15/01/2023',
       end_date: '25/01/2023',
-      thumbnail: 'https://getyourpet.com/photos/250140fd-3b25-422b-9c88-42ce8703697b/pet-photo-767893.png'
+      thumbnail:[ 'https://getyourpet.com/photos/250140fd-3b25-422b-9c88-42ce8703697b/pet-photo-767893.png','https://getyourpet.com/photos/250140fd-3b25-422b-9c88-42ce8703697b/pet-photo-767893.png' ]
     },
     {
       id:6,
@@ -96,7 +96,7 @@ const List = () => {
       gender: 'Male',
       start_date: '15/01/2023',
       end_date: '25/01/2023',
-      thumbnail: 'https://getyourpet.com/photos/51ed97a5-afbf-4fe8-85e1-1c8302968a5e/pet-photo-747488.png'
+      thumbnail:[ 'https://getyourpet.com/photos/51ed97a5-afbf-4fe8-85e1-1c8302968a5e/pet-photo-747488.png','https://getyourpet.com/photos/51ed97a5-afbf-4fe8-85e1-1c8302968a5e/pet-photo-747488.png' ]
     },
     {
       id:7,
@@ -109,7 +109,7 @@ const List = () => {
       gender: 'Male',
       start_date: '15/01/2023',
       end_date: '25/01/2023',
-      thumbnail: 'https://getyourpet.com/photos/632e4cf9-701a-408e-aed2-cbde8e7f3116/pet-photo-765087.png'
+      thumbnail:[ 'https://getyourpet.com/photos/632e4cf9-701a-408e-aed2-cbde8e7f3116/pet-photo-765087.png','https://getyourpet.com/photos/632e4cf9-701a-408e-aed2-cbde8e7f3116/pet-photo-765087.png' ]
     },
     {
       id:8,
@@ -122,7 +122,7 @@ const List = () => {
       gender: 'Male',
       start_date: '15/01/2023',
       end_date: '25/01/2023',
-      thumbnail: 'https://getyourpet.com/photos/8fcafb87-c94a-4ed4-909b-3ad220600892/pet-photo-770921.png'
+      thumbnail:[ 'https://getyourpet.com/photos/8fcafb87-c94a-4ed4-909b-3ad220600892/pet-photo-770921.png','https://getyourpet.com/photos/8fcafb87-c94a-4ed4-909b-3ad220600892/pet-photo-770921.png' ]
     },
     {
       id:9,
@@ -135,7 +135,7 @@ const List = () => {
       gender: 'Female',
       start_date: '15/01/2023',
       end_date: '25/01/2023',
-      thumbnail: 'https://getyourpet.com/photos/12ea1327-0882-44c9-81f9-090d6a112a76/pet-photo-742118.png'
+      thumbnail:[ 'https://getyourpet.com/photos/12ea1327-0882-44c9-81f9-090d6a112a76/pet-photo-742118.png','https://getyourpet.com/photos/12ea1327-0882-44c9-81f9-090d6a112a76/pet-photo-742118.png' ]
     },
     {
       id:10,
@@ -148,7 +148,7 @@ const List = () => {
       gender: 'Female',
       start_date: '15/01/2023',
       end_date: '25/01/2023',
-      thumbnail: 'https://getyourpet.com/photos/f06050e3-5bd8-48f8-ba03-181d4dc495aa/pet-photo-752522.png'
+      thumbnail:[ 'https://getyourpet.com/photos/f06050e3-5bd8-48f8-ba03-181d4dc495aa/pet-photo-752522.png','https://getyourpet.com/photos/f06050e3-5bd8-48f8-ba03-181d4dc495aa/pet-photo-752522.png' ]
     },
     {
       id:11,
@@ -161,7 +161,7 @@ const List = () => {
       gender: 'Male',
       start_date: '15/01/2023',
       end_date: '25/01/2023',
-      thumbnail: 'https://getyourpet.com/photos/4f93393b-83e2-4ce8-bfa0-6e71f560f774/pet-photo-766579.png'
+      thumbnail:[ 'https://getyourpet.com/photos/4f93393b-83e2-4ce8-bfa0-6e71f560f774/pet-photo-766579.png','https://getyourpet.com/photos/4f93393b-83e2-4ce8-bfa0-6e71f560f774/pet-photo-766579.png' ]
     },
     {
       id:12,
@@ -174,7 +174,7 @@ const List = () => {
       gender: 'Female',
       start_date: '15/01/2023',
       end_date: '25/01/2023',
-      thumbnail: 'https://getyourpet.com/photos/54921680-1554-4405-b998-5db5825eb8f1/pet-photo-759562.png'
+      thumbnail:[ 'https://getyourpet.com/photos/54921680-1554-4405-b998-5db5825eb8f1/pet-photo-759562.png','https://getyourpet.com/photos/54921680-1554-4405-b998-5db5825eb8f1/pet-photo-759562.png' ]
     },
     {
       id:13,
@@ -187,7 +187,7 @@ const List = () => {
       gender: 'Male',
       start_date: '15/01/2023',
       end_date: '25/01/2023',
-      thumbnail: 'https://getyourpet.com/photos/f78eca88-273e-40b4-b541-e4cea754ee04/pet-photo-768265.png'
+      thumbnail:[ 'https://getyourpet.com/photos/f78eca88-273e-40b4-b541-e4cea754ee04/pet-photo-768265.png','https://getyourpet.com/photos/f78eca88-273e-40b4-b541-e4cea754ee04/pet-photo-768265.png' ]
     },
     
   ]

@@ -5,6 +5,7 @@ import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ImageSlider from "../../components/imageSlider/ImageSlider";
 
 import "./pet.css";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -22,7 +23,8 @@ const Pet = () => {
           <Link to={`/pets/${pet.category}`} className="arrowBack " state={{pet: pet.category}}>
             <FontAwesomeIcon icon={faArrowLeft} />
           </Link>
-          <img src={pet.thumbnail} alt="" className="petImg" />
+          <ImageSlider images={pet.thumbnail} />
+          {/* <img src={pet.thumbnail} alt="" className="petImg" /> */}
           <div className="descContainer">
             <h1>Nombre: {pet.name}</h1>
             <h2>Edad: {pet.age}</h2>

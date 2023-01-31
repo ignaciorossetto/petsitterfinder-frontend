@@ -1,0 +1,100 @@
+.loginView{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items:baseline;
+    height:75vh
+}
+
+.loginContainer{
+    margin-top: 50px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width:1024px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px #244C2E;;
+    -webkit-box-shadow: 0px 0px 5px 0px #244C2E;;
+    -moz-box-shadow: 0px 0px 5px 0px #244C2E;;
+
+}
+
+.loginContainer>h1{
+    color: #244C2E;
+}
+
+.loginForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.loginForm>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0px;
+}
+
+.formText{
+    width:35%;
+    color: #244C2E;
+}
+
+.formInput{
+    width:70%;
+
+    height:20px;
+}
+
+.formBtns{
+    margin: 15px;
+}
+
+.loginbtns{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #244C2E;
+    color: white;
+    margin: 15px;
+    cursor: pointer;
+}
+
+
+  .otherLoginSpan {
+    width:100%;
+    margin: 0 5px;
+    display: flex;
+    align-items: center; 
+  }
+  
+  .otherLoginSpan::before,
+  .otherLoginSpan::after {
+    content: '';
+    height: 1px;
+    background-color: silver;
+    flex-grow: 1; 
+  }
+
+  .tploginContainer{
+    margin-top: 15px;
+    width:100%;
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    border: solid 2px #244C2E;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .tploginContainerIcon{
+    margin-right: 10px;
+    font-size: 25px;
+  }

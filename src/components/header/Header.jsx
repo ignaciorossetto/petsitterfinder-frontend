@@ -11,7 +11,7 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = ({ type, petType }) => {
   const [openCalendar, setOpenCalendar] = useState(false);
@@ -115,8 +115,9 @@ const Header = ({ type, petType }) => {
               Reiciendis dolores, iusto consequuntur quas voluptatibus fuga id
               nulla suscipit sapiente ratione ut in error velit itaque!
             </p>
-
-            <button className="headerBtn">Register/Login</button>
+            <Link to='/login'>
+              <button className="headerBtn">Register/Login</button>
+            </Link>
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={searchBarIcon} className="headerIcon" />
