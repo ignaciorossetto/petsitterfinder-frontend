@@ -1,0 +1,39 @@
+.otherLoginSpan {
+    width:100%;
+    margin: 0 5px;
+    display: flex;
+    align-items: center; 
+  }
+  
+  .otherLoginSpan::before,
+  .otherLoginSpan::after {
+    content: '';
+    height: 1px;
+    background-color: silver;
+    flex-grow: 1; 
+  }
+
+  .tploginContainer{
+    margin-top: 15px;
+    width:100%;
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    border: solid 2px #244C2E;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #244C2E;
+  }
+  .tploginContainerIcon{
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  .fbIcon{
+    color: rgb(80, 80, 240);
+  }
+
