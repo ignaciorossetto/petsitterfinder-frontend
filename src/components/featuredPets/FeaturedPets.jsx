@@ -1,35 +1,67 @@
-import React from 'react'
-import './featuredPets.css'
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import "./featuredPets.css";
+import useFetch from "../../hooks/useFetch.js";
+import { motion } from "framer-motion";
+import config from '../../config/config.js'
+import Skeleton from "../skeleton/Skeleton";
 
 const FeaturedPets = () => {
-    return (
-      <div className="featuredPetsContainer">
-        <h1 className="featuredPetsTitle">Necesitan casa antes del 15/01/2023</h1>
-          <div className="featuredPetList">
-              <div className="featuredPetItem">
-                  <img className='featuredPetImg' src='https://cdn.pixabay.com/photo/2017/09/25/13/14/dog-2785077_960_720.jpg' alt="perro" />
-                  <div className="featuredPetTitles">
-                      <h1>Juan</h1>
-                      <h2>15/01/2023 to 25/01/2023</h2>
-                  </div>
-              </div>
-              <div className="featuredPetItem">
-              <img className='featuredPetImg' src='https://cdn.pixabay.com/photo/2022/12/31/14/32/cat-7688749_960_720.jpg' alt="perro" />
-                  <div className="featuredPetTitles">
-                      <h1>Gaturro</h1>
-                      <h2>15/01/2023 to 25/01/2023</h2>
-                  </div>
-              </div>
-              <div className="featuredPetItem">
-              <img className='featuredPetImg' src='https://cdn.pixabay.com/photo/2017/03/14/14/49/cat-2143332_960_720.jpg' alt="perro" />
-                  <div className="featuredPetTitles">
-                      <h1>Oliver</h1>
-                      <h2>15/01/2023 to 25/01/2023</h2>
-                  </div>
-              </div>
-          </div>
-      </div>
-    )
-  }
-  
-  export default FeaturedPets
+  const { data, loading } = useFetch(`${config.url}/api/pets/getFeaturedPets`);
+  const [leftWidth, setLeftWidth] = useState(0)
+  const [today ] = useState(new Date())
+  const [date ] = useState(new Date(today.getTime() + (7*24*6060*1000)))
+  const [finalDate ] = useState(date.getDate()+'/'+ (date.getMonth()+1) +'/'+date.getFullYear())
+  const carousel = useRef()
+
+   useEffect(()=>{
+    if (carousel.current){
+      const bb = carousel.current.scrollWidth - carousel.current.offsetWidth
+      setLeftWidth(-bb)
+    }
+  },[carousel.current?.scrollWidth])
+
+
+  return (
+    <>
+    { data.data?.length >= 3 && ( 
+      <div className="divContainer" >
+      <h1 className="featuredPetsTitle">Necesitan casa antes del {finalDate}</h1>
+      <motion.div className="featuredPetsContainer carousel" ref={carousel} >
+        <motion.div
+          className="featuredPetList "
+          drag="x"
+          dragConstraints={{ right: 0,  left: leftWidth}}
+          
+        >
+          {loading
+            ? <Skeleton type={'h-cards'} counter={1} />
+            : data.data &&
+            data.data.map((fpet) => {
+                return (
+                    <Link to={`/pets/${fpet.type}/${fpet._id}`}>
+                  <motion.div className="featuredPetItem">
+                    <img
+                        className="featuredPetImg"
+                        src={fpet.images[0]}
+                        alt="perro"
+                      />
+                      <div className="featuredPetTitles"  key={fpet._id}>
+                        <h1>{fpet.name}</h1>
+                        <h2>{fpet.dates[0]} - {fpet.dates[1]}</h2>
+                        </div>
+                  </motion.div>
+                    </Link>
+                  );
+              })}
+        </motion.div>
+        </motion.div>
+        </div>
+        )
+      }
+      </>
+        );
+      };
+      
+      export default FeaturedPets;
+      

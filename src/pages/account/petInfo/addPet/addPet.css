@@ -1,0 +1,77 @@
+.addPetContainer{
+    margin: 80px 0px;
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addPet{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addPetForm>h1{
+    text-align: center;
+}
+
+
+.addPetForm{
+    color: #244C2E;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 30px 80px;
+    box-shadow: 0px 0px 5px 0px #244C2E;
+    -webkit-box-shadow: 0px 0px 5px 0px #244C2E;
+    -moz-box-shadow: 0px 0px 5px 0px #244C2E;
+}
+
+.addPetFormLabel{
+    margin: 10px 0px;
+    font-size: 18px;
+}
+
+.addPetFormInput{
+    padding: 5px 0px;
+}
+
+.addPetForm>textarea{
+    height: 40px
+}
+
+.addPetFormSub{
+    align-self: center;
+    width: 50%;
+    margin: 35px 0px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #69DB86;
+    cursor: pointer;
+}
+
+.addPetFormSub:hover{
+    transition: all 0.2s;
+    transform: scale(1.02);
+}
+
+.dateInput{
+    background-color: white;
+    width: 100%;
+    border: 1px solid black;
+    padding: 5px 0px;
+    cursor: pointer;
+    position: relative;
+}
+
+.dateAddPet{
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 35px;
+}

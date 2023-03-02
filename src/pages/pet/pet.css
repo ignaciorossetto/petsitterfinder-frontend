@@ -10,11 +10,15 @@
     max-width: 1024px;
     display: flex;
     justify-content: space-between;
+    position: relative;
+    gap: 50px;
 }
 .petImg{
     border-radius: 10px;
-    height:350px;
-    width:auto;
+    height:400px;
+    width:400px;
+    object-fit: cover;
+
 }
 
 .descContainer{
@@ -35,4 +39,27 @@
     font-size: 30px;
     color: black;
 }
+
+.chatBtn{
+    height:fit-content;
+}
+
+/* .sliderContainer{
+    width: 300px;
+    height: 300px
+} */
+
+.skeletonPetContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.skeletonPet{
+    width: 100%;
+    max-width: 800px;
+
+}
+
 

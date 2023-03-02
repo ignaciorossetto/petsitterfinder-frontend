@@ -1,13 +1,25 @@
+.divContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .featuredPetsContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 1024px;
+    overflow: hidden;
 }
 
 .featuredPetsTitle{
-    color:#244c2e
+    color:#244c2e;
+    text-align: center;
 }
 
 .featuredPetList{
@@ -15,15 +27,15 @@
     max-width: 1024px;
     height:auto;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    gap: 20px;
     align-items: center;
+
     
 }
 
 .featuredPetItem{
     height: 300px;
-    width: 300px;
+    min-width: 300px;
     position: relative;
     cursor: pointer;
 
@@ -34,6 +46,7 @@
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
+    pointer-events: none;
 }
 .featuredPetItem:hover .featuredPetTitles{
     display: none;

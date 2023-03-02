@@ -20,9 +20,12 @@ const ImageSlider = ({images}) => {
 
   return (
     <div className="imageContainer">
-        <FontAwesomeIcon icon={faArrowAltCircleLeft} onClick={()=>handleSliderClick('l')} className='sliderArrow'/>
+        <div className="imagenCont">
+        {images?.length > 1 && <FontAwesomeIcon icon={faArrowAltCircleLeft} onClick={()=>handleSliderClick('l')} className='sliderArrow'/>}
+        
         <img src={images[number]} alt="" className="petImg"/>
-        <FontAwesomeIcon icon={faArrowAltCircleRight} onClick={()=>handleSliderClick('r')} className='sliderArrow'/>
+        {images?.length > 1 && <FontAwesomeIcon icon={faArrowAltCircleRight} onClick={()=>handleSliderClick('r')} className='sliderArrow'/>}
+        </div>
     </div>
   )
 }

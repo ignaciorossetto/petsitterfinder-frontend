@@ -19,28 +19,27 @@
 
 .headerList {
   display: flex;
-  gap: 40px;
-  margin-bottom: 50px;
+  gap: 15px;
 }
 
 .headerListItem {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 8px;
   gap: 10px;
-  font-size: 20px;
+  font-size: 16px;
   cursor: pointer;
 }
 
 .headerListItem:hover {
-  background-color: #b8f5c757;
-  border-radius: 20px;
+  background-color: #69DB86;
+  border-radius: 5px;
 }
 
 .headerListItem.active {
   border: 2px solid #244C2E;
-  border-radius: 20px;
-  background-color: #b8f5c7;
+  border-radius: 5px;
+  background-color: #69DB86;
   
 }
 
@@ -49,13 +48,18 @@
 }
 
 .headerBtn {
+  transition: all 0.05s;
   background-color: #b8f5c7;
   border: none;
   padding: 5px 15px;
   cursor: pointer;
   color: #244c2e;
-  /* border-radius: 10px; */
 }
+.headerBtn:hover {
+  transition: all 0.2s;
+  transform: scale(1.02);
+}
+
 .strGreen {
   background-color: #69DB86!important;
 
@@ -86,7 +90,13 @@
     gap: 10px;
     max-width: fit-content;
     cursor: pointer;
-
+    color: #244c2e;
+    font-size: 16px;
+    padding: 10px;
+}
+.headerSearchItem>select{
+    font-size: 16px;
+    padding: 3px;
 }
 
 .headerSearchInput{

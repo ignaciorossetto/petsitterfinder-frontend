@@ -1,0 +1,118 @@
+.petInfoContainer{
+    min-height: 400px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    color: #244C2E;
+}
+
+
+.petInfo{
+    width: 100%;
+    max-width: 1024px;
+}
+.petInfo>div{
+    margin-bottom:35px
+}
+
+.petInfoBtns{
+    justify-self: space-between;
+}
+.petInfoBtns>button{
+    padding: 15px;
+    background-color: #69DB86;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    border: 2px solid black;
+    text-decoration: none;
+    color: #244C2E;
+    
+}
+
+.petInfoBtns>button:hover{
+    transition: all 0.2s;
+    transform: scale(1.02);
+}
+
+.ownedPetContainer{
+width: 80%;
+margin-bottom: 20px;
+border: 1px solid black;
+border-radius: 10px;
+display: flex;
+}
+
+.ownedPet{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+}
+
+.imgContainer{
+    height: 300px;
+    width: 300px;
+}
+
+.imgContainer>img{
+    height: 300px;
+    width: 300px;
+    object-fit:cover;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.ownedPetInfo{
+    display: flex;
+    width: inherit;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.ownedPetInfoSpan{
+    display: flex;
+    flex-direction: column;
+}
+
+.ownedPetBtns{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.ownedPetBtns>button{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #53ad6a;
+    cursor: pointer;
+}
+
+.ownedPetBtns>button:hover{
+    transform: scale(1.02);
+}
+
+.deleteOwnedPetBtn{
+    background-color: #d15353!important;
+}
+
+.publishOwnedPetBtn{
+    background-color: #1935ee!important;
+    color: white;
+    align-self: start;
+}
+
+.datePetInfo{
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(223, 222, 222);
+    border: 2px solid black;
+    left: 175px;
+    top: -150px;
+
+}

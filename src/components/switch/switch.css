@@ -1,0 +1,56 @@
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 35px;
+    
+    
+
+}
+
+.switch>input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switchSlider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(170, 28, 28);
+    border-radius: 10px;
+}
+
+.switchSlider::before{
+    position: absolute;
+    content: "No disponible";
+    height:20px;
+    width: 100px;
+    left: 3px;
+    bottom: 6px;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 2px 4px;
+    transition: all 0.4s;
+    text-align: center;
+
+}
+
+.switch>input:checked + .switchSlider{
+    background-color: rgba(29, 145, 29, 0.849);
+    transition: all 0.4s;
+}
+
+
+.switch>input:checked + .switchSlider::before {
+    transform: translateX(50px);
+    height:20px;
+    width: 90px;
+    left: 0px;
+    bottom: 6px;
+    content: "Disponible";
+}

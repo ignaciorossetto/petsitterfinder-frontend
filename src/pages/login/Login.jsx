@@ -5,11 +5,11 @@ import LoginForm from "../../components/loginForm/LoginForm";
 import Navbar from "../../components/navbar/Navbar";
 import "./login.css";
 
-const Login = () => {
+const Login = ({type}) => {
   return (
     <>
       <Navbar type={"l/r"} />
-      <LoginForm/>
+      <LoginForm type={type}/>
       <EmailSubs />
       <Footer />
     </>

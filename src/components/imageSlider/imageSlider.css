@@ -1,5 +1,10 @@
 .imageContainer{
     display: flex;
+    align-items:baseline;
+    justify-content: center;
+}
+.imagenCont{
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -8,4 +13,5 @@
     font-size: 25px;
     margin:5px;
     cursor: pointer;
+    align-self: center;
 }

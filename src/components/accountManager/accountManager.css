@@ -1,0 +1,27 @@
+.accManContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.accManContainer{
+    color: #244C2E;
+}
+
+.accManContainer>ul>a{
+    text-decoration: none;
+    list-style:circle;
+}
+.accManContainer>ul>a>li{
+    margin-bottom: 15px;
+    color: #244C2E;
+    background-color: #69DB86;
+    border-radius: 10px;
+    padding: 5px;
+}
+.accManContainer>ul>a>li:hover{
+    transition:all 0.1s;
+    transform: scale(1.05);
+}

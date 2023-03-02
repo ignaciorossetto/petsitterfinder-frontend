@@ -1,73 +1,62 @@
-import {
-  faCalendarDays,
-  faCat,
-  faDog,
-  faFish,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCat, faDog, faFish } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./header.css";
-import "react-date-range/dist/styles.css"; // main css file
-import "react-date-range/dist/theme/default.css"; // theme css file
-import { DateRange } from "react-date-range";
-import { format } from "date-fns";
 import { Link, useNavigate } from "react-router-dom";
+import { SearchContext } from "../../context/SearchContext";
 
 const Header = ({ type, petType }) => {
-  const [openCalendar, setOpenCalendar] = useState(false);
-  const [date, setDate] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
   const navigate = useNavigate();
-
-
-
-  const [place, setPlace] = useState("");
-  const [itemList1, setItemList1] = useState(true);
-  const [itemList2, setItemList2] = useState(false);
-  const [itemList3, setItemList3] = useState(false);
-  const [searchBarIcon, setSearchBarIcon] = useState(faDog);
-  const [searchBarText, setSearchBarText] = useState("dog");
-
+  const { dispatch} = useContext(SearchContext);
+  const [size_, setSize] = useState("-");
+  const [sex, setSex] = useState("-");
+  const [age, setAge] = useState("-");
+  const [searchType, setSearchType] = useState({
+    name: "dog",
+    bool: true,
+  });
 
   const handleSearch = () => {
-    navigate(`/pets/${searchBarText}?start_date=${format(
-      date[0].startDate,
-      "dd/MM/yyyy"
-    )}&end_date=${format(
-      date[0].endDate,
-      "dd/MM/yyyy"
-    )}&place=${place}`, { state: { place, date, searchBarText } });
+    const obj ={
+      pet: searchType.name,
+      size: size_,
+      age: age,
+      sex: sex,
+    }
+    console.log(obj);
+    dispatch({type: "NEW_SEARCH", payload:obj })
+    navigate(`/pets/${searchType.name}`)
   };
-  const handlePlaceInput = (e) => {
-    setPlace(e.target.value)
+
+  const handleSizeSelect = (e) => {
+    console.log(e.target.value);
+    setSize(e.target.value);
   };
+  const handleSexSelect = (e) => {
+    setSex(e.target.value);
+  };
+  const handleAgeSelect = (e) => {
+    setAge(e.target.value);
+  };
+
   const handleListItems = (e) => {
     if (e === "dogBtn") {
-      console.log(e === "dogBtn");
-      setItemList1(true);
-      setItemList2(false);
-      setItemList3(false);
-      setSearchBarIcon(faDog);
-      setSearchBarText("dog");
+      setSearchType({
+        name: "dog",
+        bool: true,
+      });
+      return;
+    } else if (e === "catBtn") {
+      setSearchType({
+        name: "cat",
+        bool: true,
+      });
       return;
     } else if (e === "fishBtn") {
-      setItemList1(false);
-      setItemList2(true);
-      setItemList3(false);
-      setSearchBarIcon(faFish);
-      setSearchBarText("fish");
-      return;
-    } else {
-      setItemList1(false);
-      setItemList2(false);
-      setItemList3(true);
-      setSearchBarIcon(faCat);
-      setSearchBarText("cat");
+      setSearchType({
+        name: "fish",
+        bool: true,
+      });
       return;
     }
   };
@@ -79,32 +68,6 @@ const Header = ({ type, petType }) => {
           type === "list" ? "headerContainer listMode" : "headerContainer"
         }
       >
-        <div className="headerList">
-          <div
-            id="dogBtn"
-            className={`headerListItem ${itemList1 && "active"}`}
-            onClick={() => handleListItems("dogBtn")}
-          >
-            <FontAwesomeIcon icon={faDog} />
-            <span>Perros</span>
-          </div>
-          <div
-            id="fishBtn"
-            className={`headerListItem ${itemList2 && "active"}`}
-            onClick={() => handleListItems("fishBtn")}
-          >
-            <FontAwesomeIcon icon={faFish} />
-            <span>Peces</span>
-          </div>
-          <div
-            id="catBtn"
-            className={`headerListItem ${itemList3 && "active"}`}
-            onClick={() => handleListItems("catBtn")}
-          >
-            <FontAwesomeIcon icon={faCat} />
-            <span>Gatos</span>
-          </div>
-        </div>
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
@@ -115,38 +78,71 @@ const Header = ({ type, petType }) => {
               Reiciendis dolores, iusto consequuntur quas voluptatibus fuga id
               nulla suscipit sapiente ratione ut in error velit itaque!
             </p>
-            <Link to='/login'>
-              <button className="headerBtn">Register/Login</button>
+            <Link to="/sitter-register">
+              <button className="headerBtn">Registrate como cuidador!</button>
             </Link>
             <div className="headerSearch">
-              <div className="headerSearchItem">
-                <FontAwesomeIcon icon={searchBarIcon} className="headerIcon" />
-                <input
-                  type="text"
-                  placeholder={`Where are you looking for a ${searchBarText}?`}
-                  className="headerSearchInput "
-                  onChange={handlePlaceInput}
-                />
+              <div className="headerList">
+                <div
+                  id="dogBtn"
+                  className={`headerListItem ${
+                    searchType.name === "dog" && "active"
+                  }`}
+                  onClick={() => handleListItems("dogBtn")}
+                >
+                  <FontAwesomeIcon icon={faDog} />
+                </div>
+                <div
+                  id="catBtn"
+                  className={`headerListItem ${
+                    searchType.name === "cat" && "active"
+                  }`}
+                  onClick={() => handleListItems("catBtn")}
+                >
+                  <FontAwesomeIcon icon={faCat} />
+                </div>
+                <div
+                  id="fishBtn"
+                  className={`headerListItem ${
+                    searchType.name === "fish" && "active"
+                  }`}
+                  onClick={() => handleListItems("fishBtn")}
+                >
+                  <FontAwesomeIcon icon={faFish} />
+                </div>
               </div>
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
-                <span
-                  className="headerSearchText"
-                  onClick={() => setOpenCalendar(!openCalendar)}
-                >{`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(
-                  date[0].endDate,
-                  "dd/MM/yyyy"
-                )}`}</span>
-                {openCalendar && (
-                  <DateRange
-                  onChange={(item) => setDate([item.selection])}
-                  editableDateInputs={true}
-                    moveRangeOnFirstSelection={false}
-                    minDate={new Date()}
-                    ranges={date}
-                    className="date"
-                  />
-                )}
+                <label>Tamaño: </label>
+                <select onChange={handleSizeSelect}>
+                  <option  selected={true}>
+                    -
+                  </option>
+                  <option value="S">Pequeno</option>
+                  <option value="M">Mediano</option>
+                  <option value="L">Grande</option>
+                </select>
+              </div>
+              <div className="headerSearchItem">
+                <label>Sexo: </label>
+                <select name="sex"  onChange={handleSexSelect} >
+                  <option value="-" selected={true}>
+                    -
+                  </option>
+                  <option value="male">Macho</option>
+                  <option value="female">Hembra</option>
+                </select>
+              </div>
+              <div className="headerSearchItem">
+                <label>Edad: </label>
+                <select name="age" onChange={handleAgeSelect}>
+                  <option value="-" selected>
+                    -
+                  </option>
+                  <option value="very-young">Pequeño/a (menor a un año)</option>
+                  <option value="young">Joven (entre 1 y 3 años)</option>
+                  <option value="adult">Adult/a (entre 3 y 10 años)</option>
+                  <option value="elder">Anciano/a (mayor a 10 años)</option>
+                </select>
               </div>
               <div className="headerSearchItem">
                 <button className="headerBtn strGreen" onClick={handleSearch}>

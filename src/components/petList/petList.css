@@ -1,4 +1,10 @@
+.petListSkeletonContainer{
+    width: 100%;
+
+}
+
 .pListContainer{
+
     margin-top: 50px;
     width: 100%;
     display: flex;
@@ -55,4 +61,8 @@
     margin-top: 0px;
     color:#244c2eb4;
 
+}
+
+.petLink{
+    text-decoration: none;
 }
