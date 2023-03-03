@@ -1,5 +1,5 @@
 
 
 export default {
-    url: 'https://petsitterfinde.onrender.com/',
+    url: 'https://petsitterfinde.onrender.com',
 }
