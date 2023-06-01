@@ -15,7 +15,7 @@ const Navbar = ({type}) => {
   const handleLogOut = async() => {
     try {
       dispatch({type: "LOGOUT"})
-      document.cookie = 'access_token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+      document.cookie = 'access_token=; Path=/; domain=localhost; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
       navigate('/')
       Swal.fire({
         toast: true,
