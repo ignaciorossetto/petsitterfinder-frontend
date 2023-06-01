@@ -45,12 +45,12 @@ const Home = () => {
 
         <>
         {/*BLURRED LOGIN, IS NOT 100% SAFE*/}
-          {/* {!user && <div className='blurredContainer'>
+          {!user && <div className='blurredContainer'>
               <div className="blurredCardContainer">
                   <LoginForm background={'white'}/>
               </div>
-            </div>} */}
-        <div className={`homeContainer ${{/*!user && 'blurred'*/}}`}>
+            </div>}
+        <div className={`homeContainer ${!user && 'blurred'}`}>
             {/*ENDS BLURRED LOGIN, IS NOT 100% SAFE*/}
           <Header/>
           <FeaturedPets/>
