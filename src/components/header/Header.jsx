@@ -71,7 +71,7 @@ const Header = ({ type, petType }) => {
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
-              Cuidar una mascota nunca fue tan facil!
+              Que cuiden tu mascota nunca fue tan fácil!
             </h1>
             <p className="headerDesc">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -79,7 +79,7 @@ const Header = ({ type, petType }) => {
               nulla suscipit sapiente ratione ut in error velit itaque!
             </p>
             <Link to="/sitter-register">
-              <button className="headerBtn">Registrate como cuidador!</button>
+              <button className="headerBtn">Registrate como <span className="headerBtnSpan"> CUIDADOR! </span></button>
             </Link>
             <div className="headerSearch">
               <div className="headerList">

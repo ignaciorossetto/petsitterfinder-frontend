@@ -60,6 +60,11 @@
   transform: scale(1.02);
 }
 
+.headerBtnSpan{
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 .strGreen {
   background-color: #69DB86!important;
 

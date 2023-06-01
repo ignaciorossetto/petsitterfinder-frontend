@@ -9,7 +9,7 @@ import config from "../../config/config.js";
 axios.defaults.withCredentials = true
 
 
-const LoginForm = ({type}) => {
+const LoginForm = ({type, background}) => {
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
@@ -55,7 +55,7 @@ const LoginForm = ({type}) => {
 
   return (
     <div className="loginView">
-        <div className="loginContainer">
+        <div className="loginContainer" style={{backgroundColor: background}}>
           {
             type === 'sitter' ? <h1>Bienvenido Sitter!</h1> :
           <h1>Bienvenido!</h1>

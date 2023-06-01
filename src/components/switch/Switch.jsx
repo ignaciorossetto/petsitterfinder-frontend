@@ -5,13 +5,13 @@ import "./switch.css";
 import config from "../../config/config.js";
 
 
-const Switch = ({ state, petId, updater }) => {
+const Switch = ({ state,userId, petId, updater }) => {
   const [availability, setAvalability] = useState(state)
   console.log(config.port);
   const handleChange = async(e) => {
     
     try {
-      await axios.put(`${config.url}/api/pets/${petId}`, {available: !availability})
+      await axios.put(`${config.url}/api/users/${userId}/pets/${petId}`, {available: !availability});
       await axios.get(`${config.url}/api/auth/updateUser`);
       setAvalability(!availability)
       Swal.fire({

@@ -3,6 +3,8 @@
     background-color: #B8F5C7;
     display:flex;
     justify-content:center;
+    position: relative;
+    z-index:2;
 }
 .navLogoLink{
     text-decoration: none;

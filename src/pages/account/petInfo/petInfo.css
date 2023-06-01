@@ -107,12 +107,3 @@ display: flex;
     align-self: start;
 }
 
-.datePetInfo{
-    position: absolute;
-    z-index: 1;
-    background-color: rgb(223, 222, 222);
-    border: 2px solid black;
-    left: 175px;
-    top: -150px;
-
-}

@@ -15,6 +15,7 @@ import DaycareInfo from "./pages/account/daycareInfo/DaycareInfo";
 import PaymentInfo from "./pages/account/paymentInfo/PaymentInfo";
 import AddPet from "./pages/account/petInfo/addPet/AddPet";
 import SitterRegister from "./pages/sitterRegister/sitterRegister";
+import Messenger from './components/messenger/Messenger';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/user/pets/addpet" element={<AddPet />} />
           <Route path="/user/pets/daycareinfo" element={<DaycareInfo />} />
           <Route path="/user/payments" element={<PaymentInfo />} />
+          <Route path="/user/messenger" element={<Messenger />} />
           <Route path="/error" element={<Error />} />
         </Routes>
       </BrowserRouter>

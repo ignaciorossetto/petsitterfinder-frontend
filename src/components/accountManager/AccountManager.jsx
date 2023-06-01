@@ -32,6 +32,9 @@ const AccountManager = () => {
             <Link to="/user/payments">
               <li>Pagos</li>
             </Link>
+            <Link to="/user/messenger">
+              <li>Chat</li>
+            </Link>
           </ul>
         </div>
   )

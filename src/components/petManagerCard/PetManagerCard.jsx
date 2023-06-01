@@ -9,6 +9,8 @@ import { AuthContext } from '../../context/AuthContext'
 import Switch from '../switch/Switch'
 import './petManagerCard.css'
 import config from "../../config/config.js";
+import { format } from "date-fns";
+
 
 
 const PetManagerCard = ({pet}) => {
@@ -40,6 +42,37 @@ const PetManagerCard = ({pet}) => {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
         try {
           await axios.delete(`${config.url}/api/pets/${id}/${pid}`);
+          await axios.get(`${config.url}/api/auth/updateUser`);
+          setUpdater((prev) => prev + 1);
+        } catch (error) {
+          navigate("/error", {
+            state: { error: "Ocurrio un error, intenta mas tarde" },
+          });
+        }
+      }
+    });
+  };
+  const handlePublishPet = async (id, pid) => {
+    Swal.fire({
+      title: "Aceptando, publicaras tu mascota en PetSitterFinder?",
+      text: "Puedes poner tu mascota en modo `No disponible` desde el panel de mascotas",
+      showCancelButton: true,
+      confirmButtonColor: "#44ad36",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, publicar mascota!",
+      cancelButtonText: "No publicar mascota!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Modificacion exitosa!", "Tu mascota ha sido publicada.", "success");
+        try {
+          const dates = [format(date[0].startDate, "dd/MM/yyyy" ), format(date[0].endDate, "dd/MM/yyyy" )]
+          const milisecondsDates = Number(date[0].startDate)
+          const obj = {
+            dates,
+            milisecondsDates,
+            available: true
+          }
+          await axios.put(`${config.url}/api/users/${id}/pets/${pid}`, obj);
           await axios.get(`${config.url}/api/auth/updateUser`);
           setUpdater((prev) => prev + 1);
         } catch (error) {
@@ -90,6 +123,7 @@ const PetManagerCard = ({pet}) => {
                                 Publicar mascota
                               </button>
                               {openCalendar && (
+                                <>
                                 <DateRange
                                   onChange={(item) => setDate([item.selection])}
                                   editableDateInputs={true}
@@ -97,10 +131,17 @@ const PetManagerCard = ({pet}) => {
                                   minDate={new Date()}
                                   ranges={date}
                                   className="datePetInfo"
-                                />
+                                  >
+                                </DateRange>
+                                  <button className="datePetInfoCloseBtn" onClick={()=> setOpenCalendar(!openCalendar)}>X</button>
+                                  <button className="datePetInfoConfirmBtn" onClick={()=> {
+                                    setOpenCalendar(!openCalendar)
+                                    handlePublishPet(user._id, pet._id)
+                                    }}>Publicar!</button>
+                                  </>
                                 )}
                                 {
-                                  pet.milisecondsDates > Number(new Date()) && <Switch state={pet.available} petId={pet._id}  />
+                                  pet.milisecondsDates > Number(new Date()) && <Switch state={pet.available} petId={pet._id} userId={user._id}  />
                                 }
                                 
                             </div>

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import EmailSubs from "../../components/emailSubs/EmailSubs";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
@@ -7,10 +7,6 @@ import Navbar from "../../components/navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ImageSlider from "../../components/imageSlider/ImageSlider";
 import Skeleton from "../../components/skeleton/Skeleton";
-
-
-
-
 import "./pet.css";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
@@ -24,6 +20,25 @@ const Pet = () => {
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams()
   const {user} = useContext(AuthContext)
+  const navigate = useNavigate()
+
+  const handleClick =  async () => {
+    try {
+      const obj = {
+        senderId: user?._id,
+        receiverId: pet?.ownerId
+      }
+      if (user?.type === 'sitter') {
+        const response  = await axios.post('http://localhost:5000/api/conversations', obj)
+        return navigate('/user/messenger', {state: {
+          conv: response.data
+        }})        
+      }
+      navigate(`/login-sitter`)
+    } catch (error) {
+      console.log(error)
+    }
+   }
 
 useEffect(()=>{
   const fetchPet = async() => {
@@ -64,14 +79,11 @@ useEffect(()=>{
             <h2>Sexo: {pet.sex}</h2>
             {pet.breed !== "-" && <h2>Raza: {pet.breed}</h2>}
             <h2>
-              Fechas: {pet.dates.start_date} - {pet.dates.end_date}
+              Fechas: {pet.dates[0]} - {pet.dates[1]}
             </h2>
             <div className="petDescription">{pet.desc}</div>
-            <Link to='/'>
-            <button className="itemBtn chatBtn" >{user ? `Chatea con ${pet.ownerName}` : `Logeate para chatear con el dueño`}</button>
-            </Link>
+            <button className="itemBtn chatBtn" onClick={handleClick}>{user?.type === 'sitter' ? `Chatea con ${pet.ownerName.split(' ')[0]}` : `Logeate como sitter para chatear con el dueño`}</button>
 
-            
           </div>
         </div>
       </div>

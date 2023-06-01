@@ -1,0 +1,26 @@
+.datePetInfo{
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(223, 222, 222);
+    border: 2px solid black;
+    left: 175px;
+    top: -150px;
+
+}
+
+.datePetInfoCloseBtn{
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(241, 6, 6)!important;
+    border-radius: 0!important;
+    left: 502px;
+    top: -185px;
+}
+.datePetInfoConfirmBtn{
+    position: absolute;
+    z-index: 1;
+    background-color: #53ad6a!important;
+    border-radius: 0!important;
+    left: 459px;
+    bottom: -202px;
+}

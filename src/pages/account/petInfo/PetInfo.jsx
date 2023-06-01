@@ -32,7 +32,6 @@ const PetInfo = () => {
       setFetching(false);
       return;
     } catch (error) {
-      console.log("error");
       dispatch({ type: "LOGIN_FAILURE", payload: error.message });
       setFetching(false);
       navigate("/error", { state: { error: "No iniciaste sesion" } });

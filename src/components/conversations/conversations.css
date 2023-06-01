@@ -1,0 +1,43 @@
+.conversation{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer
+}
+
+.conversation:hover{
+    background-color: rgba(221, 221, 221, 0.61);
+    border-radius: 10px;
+}
+
+.convImgsContainer{
+    position: relative;
+    margin-right: 25px;
+}
+
+.conversationImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.conversationImgPet{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+    right: -15px;
+}
+
+.conversationName{
+    font-weight: 700;
+}
+
+.selectedChat{
+    background-color: rgb(192, 192, 192);
+    border-radius: 10px;
+}

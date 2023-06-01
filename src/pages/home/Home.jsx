@@ -7,6 +7,7 @@ import Footer from '../../components/footer/Footer'
 import Header from '../../components/header/Header'
 import Navbar from '../../components/navbar/Navbar'
 import PetList from '../../components/petList/PetList'
+import LoginForm from '../../components/loginForm/LoginForm'
 import "./home.css"
 import { useSearchParams } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext'
@@ -41,14 +42,25 @@ const Home = () => {
   return (
     <div>
         <Navbar/>
-        <Header/>
-        <div className="homeContainer">
+
+        <>
+        {/*BLURRED LOGIN, IS NOT 100% SAFE*/}
+          {/* {!user && <div className='blurredContainer'>
+              <div className="blurredCardContainer">
+                  <LoginForm background={'white'}/>
+              </div>
+            </div>} */}
+        <div className={`homeContainer ${{/*!user && 'blurred'*/}}`}>
+            {/*ENDS BLURRED LOGIN, IS NOT 100% SAFE*/}
+          <Header/>
           <FeaturedPets/>
           <PetList/>
           <FeaturedPetsDayCare/>
           <EmailSubs/>
-          <Footer/>
         </div>
+        </> 
+        
+        <Footer/>
     </div>
   )
 }
