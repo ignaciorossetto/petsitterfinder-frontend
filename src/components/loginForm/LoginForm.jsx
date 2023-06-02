@@ -32,18 +32,20 @@ const LoginForm = ({type, background}) => {
         email: '',
         password: ''
       })
-      dispatch({type:'LOGIN_SUCCESS', payload: response.data.payload})
 
-      navigate('/?login_status=succes')
-      Swal.fire({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: true,
-        icon: 'success',
-        title: 'Signed in successfully'
-      })
+      if (response) {  
+        dispatch({type:'LOGIN_SUCCESS', payload: response.data.payload})
+        navigate('/?login_status=succes')
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          icon: 'success',
+          title: 'Signed in successfully'
+        })
+      }
       return
       
     } catch (error) {
