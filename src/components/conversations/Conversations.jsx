@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./conversations.css";
+import config from "../../config/config";
 
 const Conversations = ({ conversation, currentUser }) => {
   const [user, setUser] = useState(null);
@@ -9,7 +10,7 @@ const Conversations = ({ conversation, currentUser }) => {
     const getUser = async () => {
       try {
           const res = await axios.get(
-            `http://localhost:5000/api/conversations/user/friend/${friendId}?type=${currentUser?.type}`
+            `${config.url}/api/conversations/user/friend/${friendId}?type=${currentUser?.type}`
           );
           return setUser(res.data);
       } catch (error) {

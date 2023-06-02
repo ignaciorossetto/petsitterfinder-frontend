@@ -8,6 +8,7 @@ import Message from '../message/Message'
 import Navbar from '../navbar/Navbar'
 import './messenger.css'
 import { useLocation } from 'react-router-dom'
+import config from '../../config/config'
 
 const Messenger = () => {
     const {state} = useLocation()
@@ -50,7 +51,7 @@ const Messenger = () => {
     useEffect(()=>{
         const getConversations = async() => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/conversations/user/current/${user?._id}`)
+                const res = await axios.get(`${config.url}/api/conversations/user/current/${user?._id}`)
                 setConversations(res.data)
             } catch (error) {
                 console.log(error);
@@ -64,7 +65,7 @@ const Messenger = () => {
     useEffect(()=>{
         const getMessages = async() => {
             try {
-              const res = await axios.get(`http://localhost:5000/api/messages/${currentChat?._id}`)  
+              const res = await axios.get(`${config.url}/api/messages/${currentChat?._id}`)  
               setMessages(res.data)
             } catch (error) {
                 console.log(error);
@@ -94,7 +95,7 @@ const Messenger = () => {
        }) 
 
         try {
-            const res = await axios.post('http://localhost:5000/api/messages', message)
+            const res = await axios.post(`${config.url}/api/messages`, message)
             setMessages([...messages, res.data])
             setNewMessage('')
             return

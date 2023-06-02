@@ -29,7 +29,7 @@ const Pet = () => {
         receiverId: pet?.ownerId
       }
       if (user?.type === 'sitter') {
-        const response  = await axios.post('http://localhost:5000/api/conversations', obj)
+        const response  = await axios.post(`${config.url}/api/conversations`, obj)
         return navigate('/user/messenger', {state: {
           conv: response.data
         }})        

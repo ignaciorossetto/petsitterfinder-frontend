@@ -5,7 +5,8 @@ import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaw, faPersonShelter, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "../../context/AuthContext";
-
+import axios from 'axios'
+import config from "../../config/config";
 
 
 const Navbar = ({type}) => {
@@ -15,8 +16,7 @@ const Navbar = ({type}) => {
   const handleLogOut = async() => {
     try {
       dispatch({type: "LOGOUT"})
-      document.cookie = 'access_token=; Path=/; domain=localhost; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
-      navigate('/')
+      // document.cookie = 'access_token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
       Swal.fire({
         toast: true,
         position: 'top-end',
@@ -26,6 +26,8 @@ const Navbar = ({type}) => {
         icon: 'success',
         title: 'Logout successfully'
       })
+      const response = await axios.get(`${config.url}/api/auth/logout`)
+      if(response) navigate('/')
     } catch (error) {
       
     }
