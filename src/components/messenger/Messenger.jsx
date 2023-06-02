@@ -25,7 +25,7 @@ const Messenger = () => {
 
     // When Messenger mounts, socket listening to port and msg arrivals
     useEffect(()=> {
-        socket.current = io("ws://localhost:8900")
+        socket.current = io("https://petsitterfinder-socket.vercel.app/")
         socket.current.on('getMessage', data=>{
             setArrivalMessage({
                 sender:data.senderId,

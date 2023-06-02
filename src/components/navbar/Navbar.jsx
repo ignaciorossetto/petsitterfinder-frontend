@@ -16,7 +16,6 @@ const Navbar = ({type}) => {
   const handleLogOut = async() => {
     try {
       dispatch({type: "LOGOUT"})
-      // document.cookie = 'access_token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
       Swal.fire({
         toast: true,
         position: 'top-end',
@@ -27,7 +26,10 @@ const Navbar = ({type}) => {
         title: 'Logout successfully'
       })
       const response = await axios.get(`${config.url}/api/auth/logout`)
-      if(response) navigate('/')
+      if(response){ 
+        document.cookie = 'access_token=;Domain=localhost; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+        navigate('/')
+      }
     } catch (error) {
       
     }
