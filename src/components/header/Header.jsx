@@ -62,25 +62,25 @@ const Header = ({ type, petType }) => {
   };
 
   return (
-    <div className="header">
+    <div className={`header ${type === "list" && 'headerPlus'}`}>
       <div
         className={
           type === "list" ? "headerContainer listMode" : "headerContainer"
         }
       >
-        {type !== "list" && (
-          <>
+        
+          
             <h1 className="headerTitle">
               Que cuiden tu mascota nunca fue tan fácil!
             </h1>
             <p className="headerDesc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis dolores, iusto consequuntur quas voluptatibus fuga id
-              nulla suscipit sapiente ratione ut in error velit itaque!
+              Nos encargamos de validar la identidad y domicilio de cada cuidador para tu tranquilidad! Gracias a nuestro sistema de calificacion, incentivamos a los cuidadores a realizar el mejor desempeño posible!
             </p>
             <Link to="/sitter-register">
               <button className="headerBtn">Registrate como <span className="headerBtnSpan"> CUIDADOR! </span></button>
             </Link>
+            {type !== "list" && (
+              <>
             <div className="headerSearch">
               <div className="headerList">
                 <div

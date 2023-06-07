@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaw, faPersonShelter, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faMessage, faPaw, faPersonShelter, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "../../context/AuthContext";
 import axios from 'axios'
 import config from "../../config/config";
@@ -36,10 +36,6 @@ const Navbar = ({type}) => {
   }
 
 
-
-
-
-
   return (
     <div className="navbar">
       <div className="navContainer">
@@ -51,20 +47,23 @@ const Navbar = ({type}) => {
           { !user &&
             <>
               <Link to='/register'>
-                <button className="navButton">Register</button>
+                <button className="navButton regBtn">Registrate!</button>
               </Link>
               <Link to={'/login'}>
                   <button className="navButton"><FontAwesomeIcon className="navIcon" icon={faPaw}/>  Login Mascotas</button>
               </Link>
-              <Link to={'/login-sitter'}>
+              {/* <Link to={'/login-sitter'}>
                   <button className="navButton"><FontAwesomeIcon className="navIcon" icon={faPersonShelter}/>  Login Cuidadores</button>
-              </Link>
+              </Link> */}
             </>
             
           }
            {user?.type === 'sitter' ? 
              <>
               
+               <Link to={`/user/messenger`}>
+                 <button className="navButton"><FontAwesomeIcon className="navIcon" icon={faMessage}/>  Chat</button>
+               </Link>
                <Link to={`/user/`}>
                  <button className="navButton"><FontAwesomeIcon className="navIcon" icon={faPaw}/>  Cuenta</button>
                </Link>
@@ -72,6 +71,9 @@ const Navbar = ({type}) => {
              </>
              : user?.type === 'user' &&
              <>
+              <Link to={`/user/messenger`}>
+                 <button className="navButton"><FontAwesomeIcon className="navIcon" icon={faMessage}/>  Chat</button>
+               </Link>
                <Link to={`/user/pets`}>
                  <button className="navButton"><FontAwesomeIcon className="navIcon" icon={faPaw}/>  Mascotas</button>
                </Link>

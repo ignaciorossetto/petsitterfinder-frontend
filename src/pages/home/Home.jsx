@@ -6,6 +6,7 @@ import FeaturedPetsDayCare from '../../components/featuredPetsDayCare/FeaturedPe
 import Footer from '../../components/footer/Footer'
 import Header from '../../components/header/Header'
 import Navbar from '../../components/navbar/Navbar'
+import Steps from '../../components/steps/Steps'
 import PetList from '../../components/petList/PetList'
 import LoginForm from '../../components/loginForm/LoginForm'
 import "./home.css"
@@ -45,16 +46,17 @@ const Home = () => {
 
         <>
         {/*BLURRED LOGIN, IS NOT 100% SAFE*/}
-          {!user && <div className='blurredContainer'>
+          {/* {!user && <div className='blurredContainer'>
               <div className="blurredCardContainer">
                   <LoginForm background={'white'}/>
               </div>
-            </div>}
-        <div className={`homeContainer ${!user && 'blurred'}`}>
+            </div>} */}
+        <div className={`homeContainer ${{/*!user && 'blurred'*/}}`}>
             {/*ENDS BLURRED LOGIN, IS NOT 100% SAFE*/}
-          <Header/>
-          <FeaturedPets/>
-          <PetList/>
+          <Header type='list'/>
+          {/* <FeaturedPets/> */}
+          {/* <PetList/> */}
+          <Steps/>
           <FeaturedPetsDayCare/>
           <EmailSubs/>
         </div>

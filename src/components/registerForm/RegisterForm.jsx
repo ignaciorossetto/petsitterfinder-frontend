@@ -6,10 +6,18 @@ import "./registerForm.css";
 import axios from "axios";
 import Swal from "sweetalert2";
 import config from "../../config/config.js";
+import AddressGoogleMapInput from "../addressGoogleMapInput/AddressGoogleMapInput";
+import { useLoadScript } from "@react-google-maps/api";
+const libr = ['places']
 
 
 
 const RegisterForm = ({type}) => {
+  const {isLoaded} = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_API_KEY,
+    libraries: libr,
+    mapId:'a97afa9e56a87dc9'
+})
   const {
     register,
     formState,
@@ -22,10 +30,14 @@ const RegisterForm = ({type}) => {
 
   const navigate = useNavigate();
   const [submittedData, setSubmittedData] = useState();
+  const [address, setAddress] = useState()
 
   const onSubmit = async (event, preventDefault_) => {
     const url = type === 'sitter' ? `${config.url}/api/auth/sitter-register` : `${config.url}/api/auth/register`
     try {
+      console.log(event)
+      event.fullAddress = {...address}
+      console.log(event)
       await axios.post(url, event);
       setSubmittedData(event);
       reset(event);
@@ -74,6 +86,7 @@ const RegisterForm = ({type}) => {
         <form className="registerForm" onSubmit={handleSubmit(onSubmit)}>
           {type==='sitter' ? <h1>Sitter Sign Up</h1>: <h1>Sign Up</h1>}
           <div>
+          
             <label className="rFormText">Nombre completo</label>
             <input
               {...register("username", {
@@ -137,7 +150,17 @@ const RegisterForm = ({type}) => {
               Las contrasenas deben contener al menos 7 caracteres
             </p>
           )}
-
+          <div>
+          <label className="rFormText">Domicilio</label>
+          {
+            isLoaded &&
+            <AddressGoogleMapInput 
+            setAddress={setAddress}
+            register={register}
+            errors={errors}
+            />
+          }
+          </div>
           <div>
             <label className="rFormText">Email</label>
             <input

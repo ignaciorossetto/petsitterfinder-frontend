@@ -7,6 +7,10 @@
   margin-bottom: 50px;
 }
 
+.headerPlus{
+  padding-bottom: 50px;
+}
+
 .headerContainer {
   width: 100%;
   max-width: 1024px;

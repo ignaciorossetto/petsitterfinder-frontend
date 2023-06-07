@@ -38,6 +38,11 @@
     /* border-radius: 10px; */
 }
 
+.regBtn{
+    background-color: #df4c38c2;
+    color: white;
+}
+
 .navButton:hover {
     transition: all 0.2s;
     transform: scale(1.02);

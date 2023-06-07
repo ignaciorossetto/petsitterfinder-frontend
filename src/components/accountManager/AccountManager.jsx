@@ -14,29 +14,39 @@ const AccountManager = () => {
     }, []);
 
   return (
-        <div className='accManContainer'>
+    <div className='accMan'>
           <h1>Bienvenido {user?.username}</h1>
           <h2>Panel de control</h2>
-          <ul>
+        <div className='accManContainer'>
+            <div className="accManItemContainer accManItemContainerSetting">
             <Link to="/user/info">
-              <li>Panel cuenta</li>
+            <h2>Panel usuario</h2>
             </Link>
+            </div>
             {user.type==='user' && 
+            <div className="accManItemContainer accManItemContainerPets">
             <Link to="/user/pets">
-              <li>Panel mascotas</li>
+              <h2>Panel mascotas</h2>
             </Link>
+            </div>
             }
+            <div className="accManItemContainer">
             <Link to="/user/pets/daycareinfo">
-              <li>Historial de cuidados</li>
+              <h2>Historial de cuidados</h2>
             </Link>
+            </div>
+            <div className="accManItemContainer">
             <Link to="/user/payments">
-              <li>Pagos</li>
+              <h2>Pagos</h2>
             </Link>
+            </div>
+            <div className="accManItemContainer">
             <Link to="/user/messenger">
-              <li>Chat</li>
+              <h2>Chat</h2>
             </Link>
-          </ul>
+          </div>
         </div>
+            </div>
   )
 }
 

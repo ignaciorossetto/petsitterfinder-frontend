@@ -1,0 +1,13 @@
+.addressPlacesOptionsResult{
+    padding: 7px;
+    border-bottom: 1px solid black;
+}
+
+.addressPlacesOptionsResult:hover{
+    background-color: rgba(128, 128, 128, 0.535);
+    cursor: pointer
+}
+
+.addressPlacesOptionsNoResult{
+    color: red;
+}

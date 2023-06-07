@@ -16,6 +16,8 @@ import PaymentInfo from "./pages/account/paymentInfo/PaymentInfo";
 import AddPet from "./pages/account/petInfo/addPet/AddPet";
 import SitterRegister from "./pages/sitterRegister/sitterRegister";
 import Messenger from './components/messenger/Messenger';
+import Map from './pages/map/Map';
+import ConfirmAccount from './pages/account/confirmAccount/ConfirmAccount';
 
 const App = () => {
   return (
@@ -24,6 +26,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/map" element={<Map />} />
           <Route path="/login" element={<Login />} />
           <Route path="/login-sitter" element={<Login type={'sitter'} />} />
           <Route path="/register" element={<Register />} />
@@ -31,6 +34,7 @@ const App = () => {
           <Route path="/pets/:category" element={<List />} />
           <Route path="/pets/:category/:id" element={<Pet />} />
           <Route path="/user" element={<Account />} />
+          <Route path="/user/confirmAccount" element={<ConfirmAccount />} />
           <Route path="/user/info" element={<AccountInfo />} />
           <Route path="/user/pets" element={<PetInfo />} />
           <Route path="/user/pets/addpet" element={<AddPet />} />

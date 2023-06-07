@@ -14,6 +14,8 @@ const LoginForm = ({type, background}) => {
     email: '',
     password: ''
   })
+  const [error, setError] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
   const {user, dispatch} = useContext(AuthContext)
 
   const navigate = useNavigate()
@@ -50,7 +52,8 @@ const LoginForm = ({type, background}) => {
       
     } catch (error) {
       dispatch({type:'LOGIN_FAILURE', payload: error.message})
-      console.log('login faiulre login form');
+      setError(error)
+      setErrorMsg(error.response.data.error)
       return
     }
   }
@@ -83,7 +86,7 @@ const LoginForm = ({type, background}) => {
                 value={credentials.password}
               />
             </div>
-            {/* {error && <span>{error.error}</span>} */}
+            {error && <span>{errorMsg}</span>}
             <div className="formBtns">
               <button onClick={handleLoginClick} className="loginbtns">Ingresar</button>
             </div>

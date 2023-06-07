@@ -1,22 +1,23 @@
     import React from 'react'
     import './steps.css'
+import { Link } from 'react-router-dom'
 
 
-    const Steps = () => {
+    const Steps = ({type}) => {
       return (
         <div className="stepsContainer">
-            <h1 className="stepsTitle">Pasa unos dias con una mascota!</h1>
+            <h1 className="stepsTitle">Accede al cuidado de tu mascota en 3 pasos!</h1>
             <div className="stepList">
                 <div className="stepItem">
                     <img className='stepImg' src='https://media.istockphoto.com/id/1311059363/es/foto/mujer-elegante-en-la-sala-de-estar-en-el-d%C3%ADa-soleado.jpg?s=1024x1024&w=is&k=20&c=QxT1_LdhZa60nTTHvIUDvkzfNpVUhuxzy4SXVnEVUmg=' alt="perro" />
                     <div className="stepTitles">
-                        <h1>Registrate en 3 pasos simples</h1>
+                        <h1><Link className='stepsLinkSignUp' to='/register'>Registrá tu mascota!</Link></h1>
                     </div>
                 </div>
                 <div className="stepItem">
                 <img className='stepImg' src='https://cdn.pixabay.com/photo/2022/12/31/14/32/cat-7688749_960_720.jpg' alt="perro" />
                     <div className="stepTitles">
-                        <h1>Contacta un Pet Owner</h1>
+                        <h1>Contacta un cuidador</h1>
                     </div>
                 </div>
                 <div className="stepItem">

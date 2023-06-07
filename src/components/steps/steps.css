@@ -9,10 +9,12 @@
 .stepList{
     width: 100%;
     max-width: 1024px;
+    gap: 20px;
     height:auto;
     display: flex;
+    flex: 1;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     
 }
@@ -21,20 +23,47 @@
     height: 300px;
     width: 300px;
     position: relative;
+    flex: 1;
 }
 
 .stepImg{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 0;
 }
 
 .stepTitles{
     background-color: rgba(255, 255, 255, 0.737);
     width: 100%;
+    height: 50%;
     text-align: center;
     position: absolute;
     bottom: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.stepTitles>h1{
+    padding: 10px;
+}
+
+.stepsLinkSignUp{
+    text-decoration: none;
+    color: #244c2e;
+
+}
+.stepTitles{
+    color: #244c2e;
+}
+
+.stepsTitle{
+    width: 1024px;
+    text-align: start;
+    color: #244c2e;
+    font-size: 25px;
 
 }
